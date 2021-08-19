@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resume Creator Form</title>
+    <style>
+        body {
+    background-color:#FCF6F5FF;
+    color:white;
+}
+fieldset{
+    box-shadow:inset 0px 0px 20px #FCF6F5FF;
+    border-radius:10px;
+    margin: 0px 0px 20px 0px;
+   border: 2px solid #89ABE3FF;
+       padding: 20px;
+}
+legend
+{
+    font-variant:small-caps ;
+    font-size:20px;
+    background-color:#89ABE3FF;
+    color:black;
+    box-shadow: 2px 2px 5px #f0f0f0;
+    border-radius:10px;
+}
+label
+{
+    text-shadow: 2px 2px 5px #f0f0f0;
+}
+form input[type="submit"]
+{
+    background-color:#89ABE3FF;
+    color:white;
+    border-radius:20px;
+    position:absolute;
+    height:30px;
+    width:80px;
+    font-size:15px;
+    left:150px;
+}
+
+    </style>
+    </head>
+    <body>
+    <script>
+    function name(){ //a function to print your name
+    return "Ndupe Elvis";
+}
+
+//alert(name());
+var a=0,b=0;
+var box=[],box1=[],box2=[];
+function createbox()
+{
+        box[a] =document.createElement("INPUT");
+        box[a].setAttribute('type','textbox');
+    btn.parentNode.insertBefore(box[a], btn);
+    a+=1;
+}
+function createboxes()
+{
+        box1[b] =document.createElement("INPUT");
+        box1[b].setAttribute('type','textbox');
+        box1[b].setAttribute ('placeholder','Title');
+    bt.parentNode.insertBefore(box1[b], bt);
+        box2[b] =document.createElement("INPUT");
+        box2[b].setAttribute('type','textbox');
+        box2[b].setAttribute ('placeholder','Description');
+    bt.parentNode.insertBefore(box2[b], bt) ;
+    b+=1;
+}
+
+function resume()
+{
+ //store the values of form fields in variables
+   var name= document.getElementById('name').value;
+   var surname= document.getElementById('surname').value;
+   var dob= document.getElementById('dob').value;
+   var nation= document.getElementById('nation').value;
+   var hobby=document.getElementById('hobby').value;
+   var email=document.getElementById('email').value;
+   var phone=document.getElementById('phone').value;
+   var sname=[];
+   var syear=[];
+   var sp=[];
+   sname[0]=document.getElementById('sname').value;
+   syear[0]=document.getElementById('syear').value;
+   sp[0]=document.getElementById('sp').value;
+   sname[1]=document.getElementById('jcname').value;
+   syear[1]=document.getElementById('jcyear').value;
+   sp[1]=document.getElementById('jcp').value;
+   sname[2]=document.getElementById('dcname').value;
+   syear[2]=document.getElementById('dcyear').value;
+   sp[2]=document.getElementById('dcp').value;
+   var skill=document.getElementById('skill').value;
+   var title=document.getElementById('t').value;
+   var des=document.getElementById('des').value;
+   //print the Resume on submitting the form
+   document.write("<h3>"+name+" "+surname+"</h3>"); 
+   document.write("<h5>E-mail:"+email+"</h5>");
+   document.write("<h5>Phone:"+phone+"</h5><hr>");
+   if(hobby!="")
+   {
+   document.write("Hobbies:"+hobby+"<br>");
+   }
+   document.write("Birthday:"+dob+"<hr>"); 
+   
+   if(sname[0]!="" || sname[1]!="" || sname[2]!="" )
+   {
+   document.write("<h4>Academic Qualification:</h4><ul>");
+   for( var i=0;i<3;i++)
+   {
+       if(sname[i]!="")
+       {
+           document.write("<li>"+sname[i]+" ("+syear[i]+") :"+sp[i]+"</li>");
+       }
+   }
+   document.write("</ul><hr>");
+   }
+   if(skill!="")
+   {
+   document.write("<h4>Skills:</h4><ul><li>"+skill+"</li>");
+   for (var i=0;i<a;i++)
+   {
+   if(box[i].value!="")
+   {
+       document.write("<li>"+box[i].value+"</li>");
+    }
+   }
+   document.write("</ul><hr>")
+   }
+   if(title!="" && des!="")
+   {
+   document.write("<h4>Projects:</h4><ul><li>"+title+" : "+des+"</li>");
+   for (var i=0;i<b;i++)
+   {
+   if(box1[i].value!="" && box2[i].value!="")
+   {
+       document.write("<li>"+box1[i].value+" : "+box2[i].value+"</li>");
+    }
+   }
+   document.write("</ul>")
+   }
+   
+}
+
+
+        
+        
+    </script>
+    <center><img src="zurimages.jpeg" width="100" height="98" 
+alt="zuri">
+    </center>
+    <form enctype="multipart/form-data" onsubmit="resume()">
+    <fieldset><legend>Personal Information</legend>
+        <label>Name:
+        <input required type="text" id="name" placeholder="Name"></label><br>
+        <label>Surname:
+        <input required type="text" id="surname" placeholder="Surname">
+        </label><br>
+        <label>Nationality:
+        <input required type="text" id="nation">
+        </label><br>
+        <label>Date of Birth:
+        <input required id="dob" type="date">
+        </label><br>
+        <label>Hobbies:
+        <input  type="text" id="hobby" placeholder="Eg. singing,painting,etc">
+        </label><br>
+        <label>Profile Picture:</label>
+        <input type="file">
+        </fieldset>
+        <fieldset>
+            <legend>Contact Information</legend>
+            <label>E-mail:<input required type="email" id="email"></label><br>
+            <label>Phone:<input required type="tel" id="phone"></label>
+        </fieldset>
+    <fieldset><legend>Academic Qualification</legend>
+    <fieldset><legend>School</legend>
+    <label>Institute Name:
+    <input type="text" id="sname" >
+    </label><br>
+    <label>Year of passing:
+    <input type="month" id="syear"></label><br>
+    <label>Percentage or CGPA:
+   <input type="text" id="sp"></label>
+    </fieldset>
+    <fieldset><legend>Junior College</legend>
+    <label>Institute Name:
+    <input type="text" id="jcname" >
+     </label><br>
+     <label>Year of passing:
+    <input type="month" id="jcyear"></label><br>
+   <label>Percentage or CGPA:
+   <input type="text" id="jcp"></label>
+    </fieldset>
+    <fieldset><legend>Degree College</legend>
+    <label>Institute Name:
+    <input type="text"  id="dcname">
+    </label>
+     <br><label>Year of passing:
+    <input type="month" id="dcyear" ></label><br>
+   <label>Percentage or CGPA:
+   <input type="text" id="dcp"></label>
+    </fieldset>
+    </fieldset>
+    <fieldset>
+        <legend>Skills</legend>
+        <input type="text" id="skill">
+        <input type="button" onclick="createbox()" value="+" id="btn">
+    </fieldset>
+    <fieldset>
+        <legend>Projects</legend>
+        <input type="text" placeholder="Title" id="t">
+        <input type="text" placeholder="Description" id="des">
+        <input type="button" onclick="createboxes()" value="+" id="bt">
+    </fieldset>
+    <input type="submit" value="Submit">
+    
+    </form>   
+    </body>
+</html>
